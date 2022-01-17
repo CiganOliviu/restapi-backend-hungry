@@ -1,9 +1,12 @@
-import express from 'express';
+import express from "express";
+import { configurations } from "./configurations/configurations";
+import { setRoutes } from "./routes/routes";
 
 const app = express();
-const port = 8080;
-const host = 'localhost'
+const port = configurations.PORT;
+const host = configurations.HOST;
 
 app.listen(port, host, () => {
-    console.log('Listen..')
+    console.log(`Server listing at https://${host}:${port}`);
+    setRoutes(app);
 })
