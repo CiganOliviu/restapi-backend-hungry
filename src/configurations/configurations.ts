@@ -1,4 +1,5 @@
 export const configurations = {
-    PORT: 8080 as number,
-    HOST: 'localhost' as string,
+    port: 8080 as number,
+    host: 'localhost' as string,
+    dbUrl: "mongodb://localhost:27017/",
 }

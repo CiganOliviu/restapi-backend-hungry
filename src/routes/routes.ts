@@ -1,5 +1,6 @@
 import { Express, Request, Response } from "express";
 import { getHomePage } from "../controllers/getHomePage.controllers";
+import { createCountriesEntry } from "../controllers/createCountries.controller";
 
 export function setRoutes(app: Express) {
 
@@ -8,4 +9,5 @@ export function setRoutes(app: Express) {
     });
 
     app.get('/', getHomePage);
+    app.post('/create-country-entry', createCountriesEntry);
 }
