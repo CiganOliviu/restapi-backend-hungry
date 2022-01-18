@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import countriesModel from "../models/countries.models";
+import countriesModel from "../models/countries.model";
 
 export async function createCountriesEntry(request: Request, response: Response) {
 

@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.configurations = void 0;
 exports.configurations = {
-    PORT: 8080,
-    HOST: 'localhost',
+    port: 8080,
+    host: 'localhost',
+    dbUrl: "mongodb://localhost:27017/hungry",
 };
