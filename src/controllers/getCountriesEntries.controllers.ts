@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import countriesModel from "../models/countries.model";
 
-export async function getCountriesEntries(request: Request, response: Response) {
+export async function getCountriesEntriesControllers(request: Request, response: Response) {
 
     const data = await countriesModel.find({});
 

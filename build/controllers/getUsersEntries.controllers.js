@@ -12,13 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createCountriesEntry = void 0;
-const countries_model_1 = __importDefault(require("../models/countries.model"));
-function createCountriesEntry(request, response) {
+exports.getUsersEntriesControllers = void 0;
+const users_model_1 = __importDefault(require("../models/users.model"));
+function getUsersEntriesControllers(request, response) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { name } = request.body;
-        const newCountryEntry = yield countries_model_1.default.create({ name });
-        return response.send(newCountryEntry);
+        const data = yield users_model_1.default.find({});
+        return response.send(data);
     });
 }
-exports.createCountriesEntry = createCountriesEntry;
+exports.getUsersEntriesControllers = getUsersEntriesControllers;
