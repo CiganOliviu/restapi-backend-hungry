@@ -16,8 +16,8 @@ exports.createUserEntryControllers = void 0;
 const users_model_1 = __importDefault(require("../models/users.model"));
 function createUserEntryControllers(request, response) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { firstName, lastName, email, password } = request.body;
-        const newUserEntry = yield users_model_1.default.create({ firstName, lastName, email, password });
+        const { username, firstName, lastName, email, password } = request.body;
+        const newUserEntry = yield users_model_1.default.create({ username, firstName, lastName, email, password });
         return response.send(newUserEntry);
     });
 }
