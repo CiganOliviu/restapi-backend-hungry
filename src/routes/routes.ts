@@ -8,6 +8,8 @@ import { createFoodCategoryEntryController } from "../controllers/createFoodCate
 import { getFoodCategoriesController } from "../controllers/getFoodCategories.controller";
 import { createIngredientEntryControllers } from "../controllers/createIngredientEntry.controllers";
 import { getIngredientsEntriesControllers } from "../controllers/getIngredientsEntries.controllers";
+import { createRecipeEntryControllers } from "../controllers/createRecipeEntry.controllers";
+import { getRecipesEntriesControllers } from "../controllers/getRecipesEntries.controllers";
 
 export function setRoutes(app: Express) {
 
@@ -26,6 +28,9 @@ export function setRoutes(app: Express) {
     app.post('/create-food-categories-entry', createFoodCategoryEntryController);
     app.get('/get-food-categories-entries', getFoodCategoriesController);
 
-    app.post('/create-ingredient-entry', createIngredientEntryControllers);
-    app.get('/get-ingredients-entries', getIngredientsEntriesControllers);
+    app.post('/create-food-ingredient-entry', createIngredientEntryControllers);
+    app.get('/get-food-ingredients-entries', getIngredientsEntriesControllers);
+
+    app.post('/create-recipe-entry', createRecipeEntryControllers);
+    app.get('/get-recipes-entries', getRecipesEntriesControllers);
 }
