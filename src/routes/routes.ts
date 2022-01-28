@@ -1,4 +1,4 @@
-import { Express, Request, Response } from "express";
+import { Express } from "express";
 import { getHomePage } from "../controllers/getHomePage.controllers";
 import { createCountryEntryControllers } from "../controllers/createCountryEntry.controllers";
 import { getCountriesEntriesControllers } from "../controllers/getCountriesEntries.controllers";
@@ -10,12 +10,10 @@ import { createIngredientEntryControllers } from "../controllers/createIngredien
 import { getIngredientsEntriesControllers } from "../controllers/getIngredientsEntries.controllers";
 import { createRecipeEntryControllers } from "../controllers/createRecipeEntry.controllers";
 import { getRecipesEntriesControllers } from "../controllers/getRecipesEntries.controllers";
+import { createReviewEntryControllers } from "../controllers/createReviewEntry.controllers";
+import { getReviewsEntriesControllers } from "../controllers/getReviewsEntries.controllers";
 
 export function setRoutes(app: Express) {
-
-    app.get('/health-check', (request: Request, response: Response) => {
-        return response.send('App works fine');
-    });
 
     app.get('/', getHomePage);
 
@@ -33,4 +31,10 @@ export function setRoutes(app: Express) {
 
     app.post('/create-recipe-entry', createRecipeEntryControllers);
     app.get('/get-recipes-entries', getRecipesEntriesControllers);
+
+    app.post('/create-ingredient-entry', createIngredientEntryControllers);
+    app.get('/get-ingredients-entries', getIngredientsEntriesControllers);
+
+    app.post('/create-review-entry', createReviewEntryControllers);
+    app.get('/get-reviews-entries', getReviewsEntriesControllers);
 }
