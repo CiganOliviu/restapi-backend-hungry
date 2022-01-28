@@ -19,7 +19,7 @@ const schema = new mongoose.Schema({
     author: {
         type: Schema.Types.ObjectId,
         ref: "UsersModel",
-        required:true
+        required: true
     }
 });
 

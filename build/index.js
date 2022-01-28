@@ -14,7 +14,7 @@ const host = configurations_1.configurations.host;
 app.use(body_parser_1.default.json());
 app.listen(port, host, () => {
     console.log(`Server listing at https://${host}:${port}`);
-    (0, db_1.default)().then(response => {
+    (0, db_1.default)().then(() => {
     });
     (0, routes_1.setRoutes)(app);
 });

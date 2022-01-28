@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.listen(port, host, () => {
     console.log(`Server listing at https://${host}:${port}`);
 
-    setupDatabase().then(response => {
+    setupDatabase().then(() => {
 
     });
 
