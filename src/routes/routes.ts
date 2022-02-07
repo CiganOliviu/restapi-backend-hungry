@@ -12,6 +12,8 @@ import { createRecipeEntryControllers } from "../controllers/createRecipeEntry.c
 import { getRecipesEntriesControllers } from "../controllers/getRecipesEntries.controllers";
 import { createReviewEntryControllers } from "../controllers/createReviewEntry.controllers";
 import { getReviewsEntriesControllers } from "../controllers/getReviewsEntries.controllers";
+import { createSchemaEntryControllers } from "../controllers/createSchemaEntry.controllers";
+import { getSchemasEntriesControllers } from "../controllers/getSchemasEntries.controllers";
 
 export function setRoutes(app: Express) {
 
@@ -37,4 +39,8 @@ export function setRoutes(app: Express) {
 
     app.post('/create-review-entry', createReviewEntryControllers);
     app.get('/get-reviews-entries', getReviewsEntriesControllers);
+
+    app.post('/create-schema-entry', createSchemaEntryControllers);
+    app.get('/get-schemas-entries', getSchemasEntriesControllers);
+
 }

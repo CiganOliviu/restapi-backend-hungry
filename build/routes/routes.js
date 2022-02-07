@@ -10,17 +10,13 @@ const createFoodCategoryEntry_controller_1 = require("../controllers/createFoodC
 const getFoodCategories_controller_1 = require("../controllers/getFoodCategories.controller");
 const createIngredientEntry_controllers_1 = require("../controllers/createIngredientEntry.controllers");
 const getIngredientsEntries_controllers_1 = require("../controllers/getIngredientsEntries.controllers");
-<<<<<<< HEAD
 const createRecipeEntry_controllers_1 = require("../controllers/createRecipeEntry.controllers");
 const getRecipesEntries_controllers_1 = require("../controllers/getRecipesEntries.controllers");
-=======
 const createReviewEntry_controllers_1 = require("../controllers/createReviewEntry.controllers");
 const getReviewsEntries_controllers_1 = require("../controllers/getReviewsEntries.controllers");
->>>>>>> origin/main
+const createSchemaEntry_controllers_1 = require("../controllers/createSchemaEntry.controllers");
+const getSchemasEntries_controllers_1 = require("../controllers/getSchemasEntries.controllers");
 function setRoutes(app) {
-    app.get('/health-check', (request, response) => {
-        return response.send('App works fine');
-    });
     app.get('/', getHomePage_controllers_1.getHomePage);
     app.post('/create-country-entry', createCountryEntry_controllers_1.createCountryEntryControllers);
     app.get('/get-countries-entries', getCountriesEntries_controllers_1.getCountriesEntriesControllers);
@@ -28,16 +24,15 @@ function setRoutes(app) {
     app.get('/get-users-entries', getUsersEntries_controllers_1.getUsersEntriesControllers);
     app.post('/create-food-categories-entry', createFoodCategoryEntry_controller_1.createFoodCategoryEntryController);
     app.get('/get-food-categories-entries', getFoodCategories_controller_1.getFoodCategoriesController);
-<<<<<<< HEAD
     app.post('/create-food-ingredient-entry', createIngredientEntry_controllers_1.createIngredientEntryControllers);
     app.get('/get-food-ingredients-entries', getIngredientsEntries_controllers_1.getIngredientsEntriesControllers);
     app.post('/create-recipe-entry', createRecipeEntry_controllers_1.createRecipeEntryControllers);
     app.get('/get-recipes-entries', getRecipesEntries_controllers_1.getRecipesEntriesControllers);
-=======
     app.post('/create-ingredient-entry', createIngredientEntry_controllers_1.createIngredientEntryControllers);
     app.get('/get-ingredients-entries', getIngredientsEntries_controllers_1.getIngredientsEntriesControllers);
     app.post('/create-review-entry', createReviewEntry_controllers_1.createReviewEntryControllers);
     app.get('/get-reviews-entries', getReviewsEntries_controllers_1.getReviewsEntriesControllers);
->>>>>>> origin/main
+    app.post('/create-schema-entry', createSchemaEntry_controllers_1.createSchemaEntryControllers);
+    app.get('/get-schemas-entries', getSchemasEntries_controllers_1.getSchemasEntriesControllers);
 }
 exports.setRoutes = setRoutes;
