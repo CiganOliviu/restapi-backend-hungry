@@ -42,5 +42,4 @@ export function setRoutes(app: Express) {
 
     app.post('/create-schema-entry', createSchemaEntryControllers);
     app.get('/get-schemas-entries', getSchemasEntriesControllers);
-
 }
