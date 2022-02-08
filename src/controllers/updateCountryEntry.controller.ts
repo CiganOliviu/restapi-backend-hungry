@@ -2,7 +2,6 @@ import { Request, Response } from "express"
 import countriesModel from "../models/countries.model";
 
 export async function updateCountryEntryController(request: Request, response: Response) {
-
     const { name, nameToUpdate } = request.body;
     const filterData = { name: name };
     const updateData = { name: nameToUpdate }
