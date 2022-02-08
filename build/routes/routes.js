@@ -16,23 +16,38 @@ const createReviewEntry_controllers_1 = require("../controllers/createReviewEntr
 const getReviewsEntries_controllers_1 = require("../controllers/getReviewsEntries.controllers");
 const createSchemaEntry_controllers_1 = require("../controllers/createSchemaEntry.controllers");
 const getSchemasEntries_controllers_1 = require("../controllers/getSchemasEntries.controllers");
+const updateCountryEntry_controller_1 = require("../controllers/updateCountryEntry.controller");
+const updateUserEntry_controller_1 = require("../controllers/updateUserEntry.controller");
+const updateFoodCategoryEntry_controller_1 = require("../controllers/updateFoodCategoryEntry.controller");
+const updateRecipeEntry_controller_1 = require("../controllers/updateRecipeEntry.controller");
+const updateIngredientEntry_controller_1 = require("../controllers/updateIngredientEntry.controller");
+const updateReviewEntry_controller_1 = require("../controllers/updateReviewEntry.controller");
+const updateSchemaEntry_controller_1 = require("../controllers/updateSchemaEntry.controller");
 function setRoutes(app) {
     app.get('/', getHomePage_controllers_1.getHomePage);
     app.post('/create-country-entry', createCountryEntry_controllers_1.createCountryEntryControllers);
     app.get('/get-countries-entries', getCountriesEntries_controllers_1.getCountriesEntriesControllers);
+    app.post('/update-country-entry', updateCountryEntry_controller_1.updateCountryEntryController);
     app.post('/create-user-entry', createUserEntry_controllers_1.createUserEntryControllers);
     app.get('/get-users-entries', getUsersEntries_controllers_1.getUsersEntriesControllers);
+    app.post('/update-user-entry', updateUserEntry_controller_1.updateUserEntryController);
     app.post('/create-food-categories-entry', createFoodCategoryEntry_controller_1.createFoodCategoryEntryController);
     app.get('/get-food-categories-entries', getFoodCategories_controller_1.getFoodCategoriesController);
+    app.post('/update-food-categories-entry', updateFoodCategoryEntry_controller_1.updateFoodCategoryEntryController);
     app.post('/create-food-ingredient-entry', createIngredientEntry_controllers_1.createIngredientEntryControllers);
     app.get('/get-food-ingredients-entries', getIngredientsEntries_controllers_1.getIngredientsEntriesControllers);
+    app.post('/update-food-ingredient-entry', updateFoodCategoryEntry_controller_1.updateFoodCategoryEntryController);
     app.post('/create-recipe-entry', createRecipeEntry_controllers_1.createRecipeEntryControllers);
     app.get('/get-recipes-entries', getRecipesEntries_controllers_1.getRecipesEntriesControllers);
+    app.post('/update-recipe-entry', updateRecipeEntry_controller_1.updateRecipeEntryController);
     app.post('/create-ingredient-entry', createIngredientEntry_controllers_1.createIngredientEntryControllers);
     app.get('/get-ingredients-entries', getIngredientsEntries_controllers_1.getIngredientsEntriesControllers);
+    app.post('/update-ingredient-entry', updateIngredientEntry_controller_1.updateIngredientEntryController);
     app.post('/create-review-entry', createReviewEntry_controllers_1.createReviewEntryControllers);
     app.get('/get-reviews-entries', getReviewsEntries_controllers_1.getReviewsEntriesControllers);
+    app.post('/update-review-entry', updateReviewEntry_controller_1.updateReviewEntryController);
     app.post('/create-schema-entry', createSchemaEntry_controllers_1.createSchemaEntryControllers);
     app.get('/get-schemas-entries', getSchemasEntries_controllers_1.getSchemasEntriesControllers);
+    app.post('/update-schema-entry', updateSchemaEntry_controller_1.updateSchemaEntryController);
 }
 exports.setRoutes = setRoutes;
