@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import recipesModel from "../models/recipes.models";
+import { getClientMessageBasedOnData, getStatusBasedOnData } from "../utils/dataValidator";
 
 export async function updateRecipeEntryController(request: Request, response: Response) {
     const {
@@ -43,10 +44,7 @@ export async function updateRecipeEntryController(request: Request, response: Re
     }
 
     const data = await recipesModel.findOneAndUpdate(filterData, updateData);
+    getClientMessageBasedOnData(data);
 
-    if (data) {
-        console.log(`Data ${data} was updated!`);
-    }
-
-    return response.status(200).json();
+    return getStatusBasedOnData(data, response);
 }

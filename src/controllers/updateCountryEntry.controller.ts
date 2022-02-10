@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import countriesModel from "../models/countries.model";
+import { getClientMessageBasedOnData, getStatusBasedOnData } from "../utils/dataValidator";
 
 export async function updateCountryEntryController(request: Request, response: Response) {
     const { name, nameToUpdate } = request.body;
@@ -7,10 +8,7 @@ export async function updateCountryEntryController(request: Request, response: R
     const updateData = { name: nameToUpdate }
 
     const data = await countriesModel.findOneAndUpdate(filterData, updateData);
+    getClientMessageBasedOnData(data);
 
-    if (data) {
-        console.log(`Data ${data} was updated!`);
-    }
-
-    return response.status(200).json();
+    return getStatusBasedOnData(data, response);
 }

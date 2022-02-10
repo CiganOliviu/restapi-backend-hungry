@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import reviewsModel from "../models/reviews.model";
+import { getClientMessageBasedOnData, getStatusBasedOnData } from "../utils/dataValidator";
 
 export async function updateReviewEntryController(request: Request, response: Response) {
     const { numberOfStars, numberOfStarsToUpdate,
@@ -26,10 +27,7 @@ export async function updateReviewEntryController(request: Request, response: Re
     };
 
     const data = await reviewsModel.findOneAndUpdate(filterData, updateData);
+    getClientMessageBasedOnData(data);
 
-    if (data) {
-        console.log(`Data ${data} was updated!`);
-    }
-
-    return response.status(200).json;
+    return getStatusBasedOnData(data, response);
 }
