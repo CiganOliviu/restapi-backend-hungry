@@ -8,7 +8,7 @@ export async function updateRecipeEntryController(request: Request, response: Re
         nameToUpdate, difficultyToUpdate, originalCountryToUpdate,
         categoriesToUpdate, descriptionToUpdate, preparationToUpdate,
         totalTimeToUpdate, categoryOfIngredientsToUpdate, pictureToUpdate,
-        cookTimeToUpdate, portionsToUpdate, caloriesToUpdate,
+        preparationTimeToUpdate, cookTimeToUpdate, portionsToUpdate, caloriesToUpdate,
         reviewsToUpdate, createdAtToUpdate,
         updatedAtToUpdate, statusToUpdate
     } = request.body;
@@ -32,6 +32,7 @@ export async function updateRecipeEntryController(request: Request, response: Re
         totalTime: totalTimeToUpdate,
         categoriesOfIngredients: categoryOfIngredientsToUpdate,
         picture: pictureToUpdate,
+        preparationTime: preparationTimeToUpdate,
         cookTime: cookTimeToUpdate,
         portions: portionsToUpdate,
         calories: caloriesToUpdate,
