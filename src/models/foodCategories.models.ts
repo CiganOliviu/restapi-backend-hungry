@@ -7,7 +7,7 @@ export interface FoodCategoriesModel extends Document {
 
 const schema = new mongoose.Schema({
     id: Number,
-    name: { type: String, required: true },
+    name: { type: String, required: true, unique: true },
 });
 
 const foodCategoriesModel = mongoose.model<FoodCategoriesModel>('foodCategoriesModel', schema);
