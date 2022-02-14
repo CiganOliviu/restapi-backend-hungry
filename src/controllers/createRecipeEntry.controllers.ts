@@ -6,14 +6,14 @@ export async function createRecipeEntryControllers(request: Request, response: R
     const {
         name, difficulty, originalCountry, categories,
         description, preparation, totalTime, categoryOfIngredients,
-        picture, cookTime, portions, calories, reviews, createdAt,
-        updatedAt, status
+        picture, preparationTime, cookTime, portions, calories, reviews,
+        createdAt, updatedAt, status
     } = request.body;
 
     const newRecipeEntry = await recipesModel.create({ name, difficulty, originalCountry, categories,
                                                     description, preparation, totalTime, categoryOfIngredients,
-                                                    picture, cookTime, portions, calories, reviews, createdAt,
-                                                    updatedAt, status });
+                                                    picture, preparationTime, cookTime, portions, calories, reviews,
+                                                    createdAt, updatedAt, status });
 
     return response.send(newRecipeEntry);
 }
