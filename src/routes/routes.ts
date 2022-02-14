@@ -28,33 +28,33 @@ export function setRoutes(app: Express) {
 
     app.post('/create-country-entry', createCountryEntryControllers);
     app.get('/get-countries-entries', getCountriesEntriesControllers);
-    app.delete('/delete-country-entry',deleteCountryEntryControllers);
+    app.delete('/delete-country-entry', deleteCountryEntryControllers);
 
     app.post('/create-user-entry', createUserEntryControllers);
     app.get('/get-users-entries', getUsersEntriesControllers);
-    app.delete('/delete-user-entry',deleteUserEntryControllers);
+    app.delete('/delete-user-entry', deleteUserEntryControllers);
 
     app.post('/create-food-categories-entry', createFoodCategoryEntryController);
     app.get('/get-food-categories-entries', getFoodCategoriesController);
-    app.delete('/delete-food-categories-entry',deleteFoodCategoryEntryController);
+    app.delete('/delete-food-categories-entry', deleteFoodCategoryEntryController);
 
     app.post('/create-food-ingredient-entry', createIngredientEntryControllers);
     app.get('/get-food-ingredients-entries', getIngredientsEntriesControllers);
-    app.delete('/delete-food-ingredient-entry',deleteIngredientEntryControllers);
+    app.delete('/delete-food-ingredient-entry', deleteIngredientEntryControllers);
 
     app.post('/create-recipe-entry', createRecipeEntryControllers);
     app.get('/get-recipes-entries', getRecipesEntriesControllers);
-    app.delete('/delete-recipe-entry',deleteRecipeEntryControllers);
+    app.delete('/delete-recipe-entry', deleteRecipeEntryControllers);
 
     app.post('/create-ingredient-entry', createIngredientEntryControllers);
     app.get('/get-ingredients-entries', getIngredientsEntriesControllers);
-    app.delete('/delete-ingredient-entry',deleteIngredientEntryControllers);
+    app.delete('/delete-ingredient-entry', deleteIngredientEntryControllers);
 
     app.post('/create-review-entry', createReviewEntryControllers);
     app.get('/get-reviews-entries', getReviewsEntriesControllers);
-    app.delete('/delete-review-entry',deleteReviewEntryControllers);
+    app.delete('/delete-review-entry', deleteReviewEntryControllers);
 
     app.post('/create-schema-entry', createSchemaEntryControllers);
     app.get('/get-schemas-entries', getSchemasEntriesControllers);
-    app.delete('/delete-schema-entry',deleteSchemaEntryControllers);
+    app.delete('/delete-schema-entry', deleteSchemaEntryControllers);
 }
