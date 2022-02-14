@@ -10,7 +10,5 @@ export const getStatusBasedOnData = (data: any, response: Response, ) => {
     if (data) {
         return response.status(200).json();
     }
-
     return response.status(400).json();
-
 };
