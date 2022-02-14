@@ -7,7 +7,7 @@ export interface IngredientsModel extends Document {
 
 const schema = new mongoose.Schema({
     id: Number,
-    name: { type: String, required: true },
+    name: { type: String, required: true, unique: true },
 });
 
 const ingredientsModel = mongoose.model<IngredientsModel>('ingredientsModel', schema);

@@ -7,7 +7,7 @@ export interface CountriesModel extends Document {
 
 const schema = new mongoose.Schema({
     id: Number,
-    name: { type: String, required: true },
+    name: { type: String, required: true, unique: true },
 });
 
 const countriesModel = mongoose.model<CountriesModel>('countriesModel', schema);
