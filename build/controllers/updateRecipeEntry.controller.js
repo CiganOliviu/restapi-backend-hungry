@@ -8,11 +8,46 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateRecipeEntryController = void 0;
+const recipes_models_1 = __importDefault(require("../models/recipes.models"));
+const dataValidator_1 = require("../utils/dataValidator");
 function updateRecipeEntryController(request, response) {
     return __awaiter(this, void 0, void 0, function* () {
-        // implement me
+        const { name, difficulty, originalCountry, categories, description, status, nameToUpdate, difficultyToUpdate, originalCountryToUpdate, categoriesToUpdate, descriptionToUpdate, preparationToUpdate, totalTimeToUpdate, categoryOfIngredientsToUpdate, pictureToUpdate, preparationTimeToUpdate, cookTimeToUpdate, portionsToUpdate, caloriesToUpdate, reviewsToUpdate, createdAtToUpdate, updatedAtToUpdate, statusToUpdate } = request.body;
+        const filterData = {
+            name: name,
+            difficulty: difficulty,
+            originalCountry: originalCountry,
+            categories: categories,
+            description: description,
+            status: status
+        };
+        const updateData = {
+            name: nameToUpdate,
+            difficulty: difficultyToUpdate,
+            originalCountry: originalCountryToUpdate,
+            categories: categoriesToUpdate,
+            description: descriptionToUpdate,
+            preparation: preparationToUpdate,
+            totalTime: totalTimeToUpdate,
+            categoriesOfIngredients: categoryOfIngredientsToUpdate,
+            picture: pictureToUpdate,
+            preparationTime: preparationTimeToUpdate,
+            cookTime: cookTimeToUpdate,
+            portions: portionsToUpdate,
+            calories: caloriesToUpdate,
+            review: reviewsToUpdate,
+            createdAt: createdAtToUpdate,
+            updatedAt: updatedAtToUpdate,
+            status: statusToUpdate
+        };
+        const data = yield recipes_models_1.default.findOneAndUpdate(filterData, updateData);
+        (0, dataValidator_1.getClientMessageBasedOnData)(data);
+        return (0, dataValidator_1.getStatusBasedOnData)(data, response);
     });
 }
 exports.updateRecipeEntryController = updateRecipeEntryController;

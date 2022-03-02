@@ -16,11 +16,11 @@ exports.createRecipeEntryControllers = void 0;
 const recipes_models_1 = __importDefault(require("../models/recipes.models"));
 function createRecipeEntryControllers(request, response) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { name, difficulty, originalCountry, categories, description, preparation, totalTime, categoryOfIngredients, picture, cookTime, portions, calories, reviews, createdAt, updatedAt, status } = request.body;
+        const { name, difficulty, originalCountry, categories, description, preparation, totalTime, categoryOfIngredients, picture, preparationTime, cookTime, portions, calories, reviews, createdAt, updatedAt, status } = request.body;
         const newRecipeEntry = yield recipes_models_1.default.create({ name, difficulty, originalCountry, categories,
             description, preparation, totalTime, categoryOfIngredients,
-            picture, cookTime, portions, calories, reviews, createdAt,
-            updatedAt, status });
+            picture, preparationTime, cookTime, portions, calories, reviews,
+            createdAt, updatedAt, status });
         return response.send(newRecipeEntry);
     });
 }

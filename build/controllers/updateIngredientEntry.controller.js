@@ -14,16 +14,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateIngredientEntryController = void 0;
 const ingredients_model_1 = __importDefault(require("../models/ingredients.model"));
+const dataValidator_1 = require("../utils/dataValidator");
 function updateIngredientEntryController(request, response) {
     return __awaiter(this, void 0, void 0, function* () {
         const { name, nameToUpdate } = request.body;
         const filterData = { name: name };
         const updateData = { name: nameToUpdate };
         const data = yield ingredients_model_1.default.findOneAndUpdate(filterData, updateData);
-        if (data) {
-            console.log(`Data ${data} was updated!`);
-        }
-        return response.status(200).json();
+        (0, dataValidator_1.getClientMessageBasedOnData)(data);
+        return (0, dataValidator_1.getStatusBasedOnData)(data, response);
     });
 }
 exports.updateIngredientEntryController = updateIngredientEntryController;

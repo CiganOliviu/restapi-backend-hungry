@@ -8,21 +8,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateSchemaEntryController = void 0;
-const schemas_model_1 = __importDefault(require("../models/schemas.model"));
-const dataValidator_1 = require("../utils/dataValidator");
-function updateSchemaEntryController(request, response) {
+exports.operateCountryController = void 0;
+const general_controllers_1 = require("../utils/general.controllers");
+function operateCountryController(request, response) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { name, nameToUpdate } = request.body;
-        const filterData = { name: name };
-        const updateData = { name: nameToUpdate };
-        const data = yield schemas_model_1.default.findOneAndUpdate(filterData, updateData);
-        (0, dataValidator_1.getClientMessageBasedOnData)(data);
-        return (0, dataValidator_1.getStatusBasedOnData)(data, response);
+        if ((0, general_controllers_1.isGetRequest)(request)) {
+            return 'GET';
+        }
+        if ((0, general_controllers_1.isPostRequest)(request)) {
+            return 'POST';
+        }
+        if ((0, general_controllers_1.isDeleteRequest)(request)) {
+            return 'DELETE';
+        }
+        if ((0, general_controllers_1.isUpdateRequest)(request)) {
+            return 'UPDATE';
+        }
     });
 }
-exports.updateSchemaEntryController = updateSchemaEntryController;
+exports.operateCountryController = operateCountryController;

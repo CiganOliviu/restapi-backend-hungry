@@ -30,41 +30,39 @@ const updateRecipeEntry_controller_1 = require("../controllers/updateRecipeEntry
 const updateIngredientEntry_controller_1 = require("../controllers/updateIngredientEntry.controller");
 const updateReviewEntry_controller_1 = require("../controllers/updateReviewEntry.controller");
 const updateSchemaEntry_controller_1 = require("../controllers/updateSchemaEntry.controller");
-
 function setRoutes(app) {
     app.get('/', getHomePage_controllers_1.getHomePage);
     app.post('/create-country-entry', createCountryEntry_controllers_1.createCountryEntryControllers);
     app.get('/get-countries-entries', getCountriesEntries_controllers_1.getCountriesEntriesControllers);
-    app.delete('/delete-country-entry', deleteCountryEntry_controllers_1.deleteCountryEntryControllers);
     app.post('/update-country-entry', updateCountryEntry_controller_1.updateCountryEntryController);
+    app.delete('/delete-country-entry', deleteCountryEntry_controllers_1.deleteCountryEntryControllers);
     app.post('/create-user-entry', createUserEntry_controllers_1.createUserEntryControllers);
     app.get('/get-users-entries', getUsersEntries_controllers_1.getUsersEntriesControllers);
-    app.delete('/delete-user-entry', deleteUserEntry_controllers_1.deleteUserEntryControllers);  
+    app.delete('/delete-user-entry', deleteUserEntry_controllers_1.deleteUserEntryControllers);
     app.post('/update-user-entry', updateUserEntry_controller_1.updateUserEntryController);
     app.post('/create-food-categories-entry', createFoodCategoryEntry_controller_1.createFoodCategoryEntryController);
     app.get('/get-food-categories-entries', getFoodCategories_controller_1.getFoodCategoriesController);
-    app.delete('/delete-food-categories-entry', deleteFoodCategoryEntry_controllers_1.deleteFoodCategoryEntryController);  
+    app.delete('/delete-food-categories-entry', deleteFoodCategoryEntry_controllers_1.deleteFoodCategoryEntryController);
     app.post('/update-food-categories-entry', updateFoodCategoryEntry_controller_1.updateFoodCategoryEntryController);
     app.post('/create-food-ingredient-entry', createIngredientEntry_controllers_1.createIngredientEntryControllers);
     app.get('/get-food-ingredients-entries', getIngredientsEntries_controllers_1.getIngredientsEntriesControllers);
-    app.delete('/delete-food-ingredient-entry', deleteIngredientEntry_controllers_1.deleteIngredientEntryControllers);  
+    app.delete('/delete-food-ingredient-entry', deleteIngredientEntry_controllers_1.deleteIngredientEntryControllers);
     app.post('/update-food-ingredient-entry', updateFoodCategoryEntry_controller_1.updateFoodCategoryEntryController);
     app.post('/create-recipe-entry', createRecipeEntry_controllers_1.createRecipeEntryControllers);
     app.get('/get-recipes-entries', getRecipesEntries_controllers_1.getRecipesEntriesControllers);
-    app.delete('/delete-recipe-entry', deleteRecipeEntry_controllers_1.deleteRecipeEntryControllers);  
+    app.delete('/delete-recipe-entry', deleteRecipeEntry_controllers_1.deleteRecipeEntryControllers);
     app.post('/update-recipe-entry', updateRecipeEntry_controller_1.updateRecipeEntryController);
     app.post('/create-ingredient-entry', createIngredientEntry_controllers_1.createIngredientEntryControllers);
     app.get('/get-ingredients-entries', getIngredientsEntries_controllers_1.getIngredientsEntriesControllers);
-    app.delete('/delete-ingredient-entry', deleteIngredientEntry_controllers_1.deleteIngredientEntryControllers);  
+    app.delete('/delete-ingredient-entry', deleteIngredientEntry_controllers_1.deleteIngredientEntryControllers);
     app.post('/update-ingredient-entry', updateIngredientEntry_controller_1.updateIngredientEntryController);
     app.post('/create-review-entry', createReviewEntry_controllers_1.createReviewEntryControllers);
     app.get('/get-reviews-entries', getReviewsEntries_controllers_1.getReviewsEntriesControllers);
-    app.delete('/delete-review-entry', deleteReviewEntry_controllers_1.deleteReviewEntryControllers);  
+    app.delete('/delete-review-entry', deleteReviewEntry_controllers_1.deleteReviewEntryControllers);
     app.post('/update-review-entry', updateReviewEntry_controller_1.updateReviewEntryController);
     app.post('/create-schema-entry', createSchemaEntry_controllers_1.createSchemaEntryControllers);
     app.get('/get-schemas-entries', getSchemasEntries_controllers_1.getSchemasEntriesControllers);
-    app.delete('/delete-schema-entry', deleteSchemaEntry_controllers_1.deleteSchemaEntryControllers);  
+    app.delete('/delete-schema-entry', deleteSchemaEntry_controllers_1.deleteSchemaEntryControllers);
     app.post('/update-schema-entry', updateSchemaEntry_controller_1.updateSchemaEntryController);
-
 }
 exports.setRoutes = setRoutes;

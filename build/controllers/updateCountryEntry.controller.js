@@ -14,16 +14,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateCountryEntryController = void 0;
 const countries_model_1 = __importDefault(require("../models/countries.model"));
+const dataValidator_1 = require("../utils/dataValidator");
 function updateCountryEntryController(request, response) {
     return __awaiter(this, void 0, void 0, function* () {
         const { name, nameToUpdate } = request.body;
         const filterData = { name: name };
         const updateData = { name: nameToUpdate };
         const data = yield countries_model_1.default.findOneAndUpdate(filterData, updateData);
-        if (data) {
-            console.log(`Data ${data} was updated!`);
-        }
-        return response.status(200).json();
+        (0, dataValidator_1.getClientMessageBasedOnData)(data);
+        return (0, dataValidator_1.getStatusBasedOnData)(data, response);
     });
 }
 exports.updateCountryEntryController = updateCountryEntryController;
