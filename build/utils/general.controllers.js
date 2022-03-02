@@ -18,16 +18,18 @@ function processGetRequest(response, model) {
     });
 }
 exports.processGetRequest = processGetRequest;
-function processPostRequest(response, objectFields, model) {
+function processPostRequest(request, response, model) {
     return __awaiter(this, void 0, void 0, function* () {
-        const newEntry = yield model.create(objectFields);
+        const data = request.body;
+        const newEntry = yield model.create(data);
         return response.send(newEntry);
     });
 }
 exports.processPostRequest = processPostRequest;
-function processDeleteRequest(response, objectId, model) {
+function processDeleteRequest(request, response, model) {
     return __awaiter(this, void 0, void 0, function* () {
-        const deleteEntry = yield model.deleteOne({ _id: objectId._id });
+        const requestId = request.body;
+        const deleteEntry = yield model.deleteOne({ _id: requestId._id });
         return response.send(deleteEntry);
     });
 }

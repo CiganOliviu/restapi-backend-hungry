@@ -1,7 +1,5 @@
 import { Express } from "express";
 import { getHomePage } from "../controllers/getHomePage.controllers";
-import { createCountryEntryControllers } from "../controllers/createCountryEntry.controllers";
-import { getCountriesEntriesControllers } from "../controllers/getCountriesEntries.controllers";
 import { createUserEntryControllers } from "../controllers/createUserEntry.controllers";
 import { getUsersEntriesControllers } from "../controllers/getUsersEntries.controllers";
 import { createFoodCategoryEntryController } from "../controllers/createFoodCategoryEntry.controller";
@@ -14,29 +12,25 @@ import { createReviewEntryControllers } from "../controllers/createReviewEntry.c
 import { getReviewsEntriesControllers } from "../controllers/getReviewsEntries.controllers";
 import { createSchemaEntryControllers } from "../controllers/createSchemaEntry.controllers";
 import { getSchemasEntriesControllers } from "../controllers/getSchemasEntries.controllers";
-import { deleteCountryEntryControllers } from "../controllers/deleteCountryEntry.controllers";
 import { deleteUserEntryControllers } from "../controllers/deleteUserEntry.controllers";
 import { deleteFoodCategoryEntryController } from "../controllers/deleteFoodCategoryEntry.controllers";
 import { deleteIngredientEntryControllers } from "../controllers/deleteIngredientEntry.controllers";
 import { deleteRecipeEntryControllers } from "../controllers/deleteRecipeEntry.controllers";
 import { deleteReviewEntryControllers } from "../controllers/deleteReviewEntry.controllers";
 import { deleteSchemaEntryControllers } from "../controllers/deleteSchemaEntry.controllers";
-import { updateCountryEntryController } from "../controllers/updateCountryEntry.controller";
 import { updateUserEntryController } from "../controllers/updateUserEntry.controller";
 import { updateFoodCategoryEntryController } from "../controllers/updateFoodCategoryEntry.controller";
 import { updateRecipeEntryController } from "../controllers/updateRecipeEntry.controller";
 import { updateIngredientEntryController } from "../controllers/updateIngredientEntry.controller";
 import { updateReviewEntryController } from "../controllers/updateReviewEntry.controller";
 import { updateSchemaEntryController } from "../controllers/updateSchemaEntry.controller";
+import { operateCountryController } from "../controllers/countries.controller";
 
 export function setRoutes(app: Express) {
 
     app.get('/', getHomePage);
 
-    app.post('/create-country-entry', createCountryEntryControllers);
-    app.get('/get-countries-entries', getCountriesEntriesControllers);
-    app.post('/update-country-entry', updateCountryEntryController);
-    app.delete('/delete-country-entry', deleteCountryEntryControllers);
+    app.use('/countries', operateCountryController);
 
     app.post('/create-user-entry', createUserEntryControllers);
     app.get('/get-users-entries', getUsersEntriesControllers);

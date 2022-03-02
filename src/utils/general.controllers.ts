@@ -3,22 +3,23 @@ import { Request, Response } from "express";
 import { requestMethods } from "../configurations/configurations";
 import { CountriesModel } from "../models/countries.model";
 
-export async function processGetRequest(response: Response, 
-    model: mongoose.Model<CountriesModel>): Promise<Response> {
+export async function processGetRequest(response: Response, model: mongoose.Model<CountriesModel>): Promise<Response> {
     
     const data = await model.find({});
     return response.send(data);
 }
 
-export async function processPostRequest(response: Response, objectFields: CountriesModel, model: mongoose.Model<CountriesModel>): Promise<Response> {
+export async function processPostRequest(request: Request, response: Response, model: mongoose.Model<CountriesModel>): Promise<Response> {
     
-    const newEntry = await model.create(objectFields);
+    const data = request.body;
+    const newEntry = await model.create(data);
     return response.send(newEntry);
 }
 
-export async function processDeleteRequest(response: Response, objectId: CountriesModel, model: mongoose.Model<CountriesModel>): Promise<Response> {
+export async function processDeleteRequest(request: Request, response: Response, model: mongoose.Model<CountriesModel>): Promise<Response> {
 
-    const deleteEntry = await model.deleteOne({ _id: objectId._id });
+    const requestId = request.body;
+    const deleteEntry = await model.deleteOne({ _id: requestId._id });
     return response.send(deleteEntry);
 }
 

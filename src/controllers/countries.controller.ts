@@ -1,24 +1,38 @@
-import { Request, response, Response } from 'express';
-import { request } from 'http';
-import { requestMethods } from '../configurations/configurations';
+import { Request, Response } from 'express';
 import countriesModel from '../models/countries.model';
-import { isDeleteRequest, isGetRequest, isPostRequest, isUpdateRequest } from '../utils/general.controllers';
+import { 
+    isDeleteRequest, 
+    isGetRequest, 
+    isPostRequest, 
+    isUpdateRequest, 
+    processDeleteRequest, 
+    processGetRequest, 
+    processPostRequest,
+    processUpdateRequest,
+} from '../utils/general.controllers';
 
 export async function operateCountryController(request: Request, response: Response) {
     
     if (isGetRequest(request)) {
-        return 'GET';
+        return processGetRequest(response, countriesModel);
     }
 
     if (isPostRequest(request)) {
-        return 'POST';
+        return processPostRequest(request, response, countriesModel);
     }
 
     if (isDeleteRequest(request)) {
-        return 'DELETE'; 
+        return processDeleteRequest(request, response,  countriesModel);
     }
 
     if (isUpdateRequest(request)) {
-        return 'UPDATE';
+        const requestData = request.body;
+        const oldData = await countriesModel.find({ _id: requestData._id });
+
+        const updatedData = {
+            name: requestData.name || oldData[0].name,
+        }
+
+        return processUpdateRequest(response, requestData, updatedData, countriesModel);
     }
 }

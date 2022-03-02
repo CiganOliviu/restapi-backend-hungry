@@ -2,8 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setRoutes = void 0;
 const getHomePage_controllers_1 = require("../controllers/getHomePage.controllers");
-const createCountryEntry_controllers_1 = require("../controllers/createCountryEntry.controllers");
-const getCountriesEntries_controllers_1 = require("../controllers/getCountriesEntries.controllers");
 const createUserEntry_controllers_1 = require("../controllers/createUserEntry.controllers");
 const getUsersEntries_controllers_1 = require("../controllers/getUsersEntries.controllers");
 const createFoodCategoryEntry_controller_1 = require("../controllers/createFoodCategoryEntry.controller");
@@ -16,26 +14,22 @@ const createReviewEntry_controllers_1 = require("../controllers/createReviewEntr
 const getReviewsEntries_controllers_1 = require("../controllers/getReviewsEntries.controllers");
 const createSchemaEntry_controllers_1 = require("../controllers/createSchemaEntry.controllers");
 const getSchemasEntries_controllers_1 = require("../controllers/getSchemasEntries.controllers");
-const deleteCountryEntry_controllers_1 = require("../controllers/deleteCountryEntry.controllers");
 const deleteUserEntry_controllers_1 = require("../controllers/deleteUserEntry.controllers");
 const deleteFoodCategoryEntry_controllers_1 = require("../controllers/deleteFoodCategoryEntry.controllers");
 const deleteIngredientEntry_controllers_1 = require("../controllers/deleteIngredientEntry.controllers");
 const deleteRecipeEntry_controllers_1 = require("../controllers/deleteRecipeEntry.controllers");
 const deleteReviewEntry_controllers_1 = require("../controllers/deleteReviewEntry.controllers");
 const deleteSchemaEntry_controllers_1 = require("../controllers/deleteSchemaEntry.controllers");
-const updateCountryEntry_controller_1 = require("../controllers/updateCountryEntry.controller");
 const updateUserEntry_controller_1 = require("../controllers/updateUserEntry.controller");
 const updateFoodCategoryEntry_controller_1 = require("../controllers/updateFoodCategoryEntry.controller");
 const updateRecipeEntry_controller_1 = require("../controllers/updateRecipeEntry.controller");
 const updateIngredientEntry_controller_1 = require("../controllers/updateIngredientEntry.controller");
 const updateReviewEntry_controller_1 = require("../controllers/updateReviewEntry.controller");
 const updateSchemaEntry_controller_1 = require("../controllers/updateSchemaEntry.controller");
+const countries_controller_1 = require("../controllers/countries.controller");
 function setRoutes(app) {
     app.get('/', getHomePage_controllers_1.getHomePage);
-    app.post('/create-country-entry', createCountryEntry_controllers_1.createCountryEntryControllers);
-    app.get('/get-countries-entries', getCountriesEntries_controllers_1.getCountriesEntriesControllers);
-    app.post('/update-country-entry', updateCountryEntry_controller_1.updateCountryEntryController);
-    app.delete('/delete-country-entry', deleteCountryEntry_controllers_1.deleteCountryEntryControllers);
+    app.use('/countries', countries_controller_1.operateCountryController);
     app.post('/create-user-entry', createUserEntry_controllers_1.createUserEntryControllers);
     app.get('/get-users-entries', getUsersEntries_controllers_1.getUsersEntriesControllers);
     app.delete('/delete-user-entry', deleteUserEntry_controllers_1.deleteUserEntryControllers);
