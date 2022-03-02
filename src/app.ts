@@ -1,4 +1,3 @@
-import express from "express";
 import bodyParser from 'body-parser';
 import { configurations } from "./configurations/configurations";
 import { setRoutes } from "./routes/routes";
