@@ -2,16 +2,14 @@ import mongoose, {Document, Schema} from 'mongoose';
 import { UsersModel } from "./users.model";
 
 export interface ReviewsModel extends Document {
-    id: number;
-    number_of_stars: number;
+    numberOfStars: number;
     comment: string;
-    posted_on: Date;
-    edited_at: Date;
+    postedOn: Date;
+    editedAt: Date;
     author: UsersModel;
 }
 
 const schema = new mongoose.Schema({
-    id: Number,
     numberOfStars: { type: Number, required:true },
     comment: { type: String, required:true },
     postedOn: { type: Date, required:true },

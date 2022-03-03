@@ -4,7 +4,6 @@ import { FoodCategoriesModel } from "./foodCategories.models";
 import { IngredientsModel } from "./ingredients.model";
 
 export interface RecipesModels extends Document {
-    id: number;
     name: string;
     difficulty: string;
     originalCountry: CountriesModel;
@@ -25,7 +24,6 @@ export interface RecipesModels extends Document {
 }
 
 const schema = new mongoose.Schema({
-    id: Number,
     name: { type: String, required: true, unique: true },
     difficulty: { type: String },
     originalCountry: [
