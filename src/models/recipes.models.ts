@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose';
 import { CountriesModel } from "./countries.model";
-import { FoodCategoriesModel } from "./foodCategories.models";
+import { FoodCategoriesModel } from "./foodCategories.model";
 import { IngredientsModel } from "./ingredients.model";
 
 export interface RecipesModels extends Document {
