@@ -10,7 +10,7 @@ export interface RecipesModels extends Document {
     categories: FoodCategoriesModel;
     description: string;
     preparation: string;
-    total_time: number;
+    totalTime: number;
     categoryOfIngredients: IngredientsModel[];
     picture: string;
     preparationTime: number;
