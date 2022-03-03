@@ -31,7 +31,11 @@ export async function operateCountryController(request: Request, response: Respo
         const oldData = await reviewsModel.find({ _id: requestData._id });
 
         const updatedData = {
-            // empty object for now
+            numberOfStars: requestData.numberOfStars || oldData[0].numberOfStars,
+            comment: requestData.comment || oldData[0].comment,
+            postedOn: requestData.postedOn || oldData[0].postedOn,
+            editedAt: requestData.editedAt || oldData[0].editedAt,
+            author: requestData.author || oldData[0].author,
         }
 
         return processUpdateRequest(response, requestData, updatedData, reviewsModel);

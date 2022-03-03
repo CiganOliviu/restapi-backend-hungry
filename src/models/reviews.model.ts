@@ -2,10 +2,10 @@ import mongoose, {Document, Schema} from 'mongoose';
 import { UsersModel } from "./users.model";
 
 export interface ReviewsModel extends Document {
-    number_of_stars: number;
+    numberOfStars: number;
     comment: string;
-    posted_on: Date;
-    edited_at: Date;
+    postedOn: Date;
+    editedAt: Date;
     author: UsersModel;
 }
 
