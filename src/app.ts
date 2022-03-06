@@ -15,5 +15,5 @@ configurations.app.listen(port, host, () => {
 
     });
 
-    setRoutes(configurations.app);
+    setRoutes(configurations.app, configurations.cors);
 })
