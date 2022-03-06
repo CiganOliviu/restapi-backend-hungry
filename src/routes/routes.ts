@@ -5,7 +5,8 @@ import { operateReviewsController } from "../controllers/reviews.controller";
 import { operateUsersController } from "../controllers/users.controller";
 
 export function setRoutes(app: Express, cors: (corsOptions: object) => any) {
-    app.use('/countries', cors(configurations.corsOptions), operateCountryController);
+    app.use(cors(configurations.corsOptions));
+    app.use('/countries', operateCountryController);
     app.use('/reviews', operateReviewsController);
     app.use('/users', operateUsersController);
 }
