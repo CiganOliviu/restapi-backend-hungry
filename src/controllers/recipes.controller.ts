@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import recipesModel from '../models/recipes.models';
+import recipesModel from '../models/recipes.model';
 import { 
     isDeleteRequest, 
     isGetRequest, 
