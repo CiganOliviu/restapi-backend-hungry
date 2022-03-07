@@ -36,7 +36,7 @@ export async function operateRecipesController(request: Request, response: Respo
             categories: requestData.categories || oldData[0].categories,
             description: requestData.description || oldData[0].description,
             preparation: requestData.preparation || oldData[0].preparation,
-            total_time: requestData.totalTime || oldData[0].totalTime,
+            totalTime: requestData.totalTime || oldData[0].totalTime,
             categoryOfIngredients: requestData.categoryOfIngredients || oldData[0].categoryOfIngredients,
             picture: requestData.picture || oldData[0].picture,
             preparationTime: requestData.preparationTime || oldData[0].preparationTime,
