@@ -3,22 +3,25 @@ import { Request, Response } from "express";
 import { requestMethods } from "../configurations/configurations";
 import { CountriesModel } from "../models/countries.model";
 import { ReviewsModel } from '../models/reviews.model';
+import { UsersModel } from '../models/users.model';
 
 export async function processGetRequest(response: Response, 
-    model: mongoose.Model<CountriesModel | ReviewsModel>): Promise<Response> {
+    model: mongoose.Model<CountriesModel | ReviewsModel | UsersModel>): Promise<Response> {
     
     const data = await model.find({});
     return response.send(data);
 }
 
-export async function processPostRequest(request: Request, response: Response, model: mongoose.Model<CountriesModel | ReviewsModel>): Promise<Response> {
+export async function processPostRequest(request: Request, response: Response, 
+    model: mongoose.Model<CountriesModel | ReviewsModel | UsersModel>): Promise<Response> {
     
     const data = request.body;
     const newEntry = await model.create(data);
     return response.send(newEntry);
 }
 
-export async function processDeleteRequest(request: Request, response: Response, model: mongoose.Model<CountriesModel | ReviewsModel>): Promise<Response> {
+export async function processDeleteRequest(request: Request, response: Response,
+     model: mongoose.Model<CountriesModel | ReviewsModel | UsersModel>): Promise<Response> {
 
     const requestId = request.body;
     const deleteEntry = await model.deleteOne({ _id: requestId._id });
@@ -26,7 +29,8 @@ export async function processDeleteRequest(request: Request, response: Response,
 }
 
 export async function processUpdateRequest(response: Response, objectField: CountriesModel, 
-    updatedData: mongoose.UpdateQuery<CountriesModel | ReviewsModel>, model: mongoose.Model<CountriesModel | ReviewsModel>): Promise<Response> {
+    updatedData: mongoose.UpdateQuery<CountriesModel | ReviewsModel | UsersModel>,
+    model: mongoose.Model<CountriesModel | ReviewsModel | UsersModel>): Promise<Response> {
 
     const updateEntry = await model.findOneAndUpdate({ _id: objectField._id }, updatedData);
     return response.send(updateEntry);
