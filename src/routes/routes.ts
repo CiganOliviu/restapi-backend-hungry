@@ -1,6 +1,7 @@
 import { Express } from "express";
 import { configurations } from "../configurations/configurations";
 import { operateCountryController } from "../controllers/countries.controller";
+import { operateRecipesController } from "../controllers/recipes.controller";
 import { operateReviewsController } from "../controllers/reviews.controller";
 import { operateSchemasController } from "../controllers/schemas.controller";
 import { operateIngredientController } from "../controllers/ingredients.controller";
@@ -15,4 +16,5 @@ export function setRoutes(app: Express, cors: (corsOptions: object) => any) {
     app.use('/ingredients', operateIngredientController);
     app.use('/foodCategories', operateFoodCategoriesController);
     app.use('/users', operateUsersController);
+    app.use('/recipes', operateRecipesController);
 }
