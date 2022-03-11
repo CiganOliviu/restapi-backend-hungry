@@ -11,7 +11,7 @@ import {
     processUpdateRequest,
 } from '../utils/general.controllers';
 
-export async function operateCountryController(request: Request, response: Response) {
+export async function operateCountriesController(request: Request, response: Response) {
     
     if (isGetRequest(request)) {
         return processGetRequest(response, countriesModel);
