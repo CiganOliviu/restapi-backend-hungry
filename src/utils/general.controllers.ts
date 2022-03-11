@@ -4,16 +4,23 @@ import { requestMethods } from "../configurations/configurations";
 import { CountriesModel } from "../models/countries.model";
 import { ReviewsModel } from '../models/reviews.model';
 import { UsersModel } from '../models/users.model';
+import { FoodCategoriesModel } from '../models/foodCategories.model';
+import { IngredientsModel } from '../models/ingredients.model';
+import { RecipesModels } from '../models/recipes.model';
+import { SchemasModel } from '../models/schemas.model';
+
+type generalModels = CountriesModel | FoodCategoriesModel | IngredientsModel 
+| RecipesModels | ReviewsModel | UsersModel | SchemasModel;
 
 export async function processGetRequest(response: Response, 
-    model: mongoose.Model<CountriesModel | ReviewsModel | UsersModel>): Promise<Response> {
+    model: mongoose.Model<generalModels>): Promise<Response> {
     
     const data = await model.find({});
     return response.send(data);
 }
 
 export async function processPostRequest(request: Request, response: Response, 
-    model: mongoose.Model<CountriesModel | ReviewsModel | UsersModel>): Promise<Response> {
+    model: mongoose.Model<generalModels>): Promise<Response> {
     
     const data = request.body;
     const newEntry = await model.create(data);
@@ -21,7 +28,7 @@ export async function processPostRequest(request: Request, response: Response,
 }
 
 export async function processDeleteRequest(request: Request, response: Response,
-     model: mongoose.Model<CountriesModel | ReviewsModel | UsersModel>): Promise<Response> {
+     model: mongoose.Model<generalModels>): Promise<Response> {
 
     const requestId = request.body;
     const deleteEntry = await model.deleteOne({ _id: requestId._id });
@@ -29,11 +36,19 @@ export async function processDeleteRequest(request: Request, response: Response,
 }
 
 export async function processUpdateRequest(response: Response, objectField: CountriesModel, 
-    updatedData: mongoose.UpdateQuery<CountriesModel | ReviewsModel | UsersModel>,
-    model: mongoose.Model<CountriesModel | ReviewsModel | UsersModel>): Promise<Response> {
+    updatedData: mongoose.UpdateQuery<generalModels>,
+    model: mongoose.Model<generalModels>): Promise<Response> {
 
     const updateEntry = await model.findOneAndUpdate({ _id: objectField._id }, updatedData);
     return response.send(updateEntry);
+}
+
+export async function getInstanceById(request: Request, 
+    response: Response, 
+    model: mongoose.Model<generalModels>) {
+
+    const data = await model.findById(request.params.id);
+    return response.send(data);
 }
 
 export const isGetRequest = (request: Request): boolean => {
