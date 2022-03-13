@@ -32,6 +32,7 @@ export async function operateSchemasController(request: Request, response: Respo
 
         const updatedData = {
             name: requestData.name || oldData[0].name,
+            routes: requestData.routes || oldData[0].routes,
         }
 
         return processUpdateRequest(response, requestData, updatedData, schemasModel);
